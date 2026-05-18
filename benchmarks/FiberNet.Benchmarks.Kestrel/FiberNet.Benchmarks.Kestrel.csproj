@@ -1,15 +1,14 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>
-    <TargetFrameworks>net8.0;net9.0;net10.0</TargetFrameworks>
+    <TargetFramework>$(DefaultTargetFramework)</TargetFramework>
     <IsAotCompatible>false</IsAotCompatible>
     <Optimize>true</Optimize>
-    <!-- BDN needs public non-sealed classes; owns disposable fields cleaned up via [GlobalCleanup] -->
-    <NoWarn>$(NoWarn);CA1515;CA1812;CA1001</NoWarn>
+    <!-- CA1515: internal types in exe; CA2000: SocketsHttpHandler lifetime is owned by HttpClient -->
+    <!-- CA1303: display-only strings; no localization needed for a benchmark tool          -->
+    <NoWarn>$(NoWarn);CA1515;CA2000;CA1303</NoWarn>
   </PropertyGroup>
-
   <ItemGroup>
-    <PackageReference Include="BenchmarkDotNet" />
-    <PackageReference Include="BenchmarkDotNet.Diagnostics.Windows" Condition="$([MSBuild]::IsOSPlatform('Windows'))" />
     <ProjectReference Include="..\..\src\FiberNet.Transport.Kestrel\FiberNet.Transport.Kestrel.csproj" />
+    <ProjectReference Include="..\..\src\FiberNet.Transport.Kestrel.IoUring\FiberNet.Transport.Kestrel.IoUring.csproj" />
   </ItemGroup>
 </Project>

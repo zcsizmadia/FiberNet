@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>$(DefaultTargetFrameworks)</TargetFrameworks>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <IsAotCompatible>false</IsAotCompatible>
+    <Description>FiberNet io_uring Kestrel transport — zero-copy async I/O via a native liburing bridge (Linux only).</Description>
+    <!-- CA1515: internal types are intentional in this library -->
+    <!-- CA2000: factory BindAsync transfers ownership to the caller; local cannot be awaited-disposed -->
+    <NoWarn>$(NoWarn);CA1515;CA2000</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
+  <!--
+    Native library layout for the .NET runtime resolver.
+    Run native/libfibernet_uring/build.sh on Linux to populate this folder.
+  -->
+  <ItemGroup>
+    <Content Include="runtimes/**" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+</Project>

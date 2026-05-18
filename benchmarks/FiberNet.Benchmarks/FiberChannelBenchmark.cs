@@ -4,9 +4,6 @@ using FiberNet.Core;
 
 namespace FiberNet.Benchmarks;
 
-[SimpleJob(RuntimeMoniker.Net80)]
-[SimpleJob(RuntimeMoniker.Net90)]
-[SimpleJob(RuntimeMoniker.Net10_0)]
 [MemoryDiagnoser]
 [HideColumns("Error", "StdDev", "Median", "RatioSD")]
 public class FiberChannelBenchmark

@@ -5,6 +5,7 @@
     <Project Path="src\FiberNet.IO.Windows\FiberNet.IO.Windows.csproj" />
     <Project Path="src\FiberNet.IO.Linux\FiberNet.IO.Linux.csproj" />
     <Project Path="src\FiberNet.Transport.Kestrel\FiberNet.Transport.Kestrel.csproj" />
+    <Project Path="src\FiberNet.Transport.Kestrel.IoUring\FiberNet.Transport.Kestrel.IoUring.csproj" />
   </Folder>
   <Folder Name="/tests/">
     <Project Path="tests\FiberNet.Core.Tests\FiberNet.Core.Tests.csproj" />

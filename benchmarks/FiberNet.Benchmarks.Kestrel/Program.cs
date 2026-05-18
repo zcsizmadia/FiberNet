@@ -1,3 +1,3 @@
-using BenchmarkDotNet.Running;
+using FiberNet.Benchmarks.Kestrel;
 
-BenchmarkSwitcher.FromAssembly(typeof(Program).Assembly).Run(args);
+await LoadBench.RunAsync(args).ConfigureAwait(false);
