@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>$(DefaultTargetFrameworks)</TargetFrameworks>
+    <OutputType>Exe</OutputType>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\FiberNet.IO.Linux\FiberNet.IO.Linux.csproj" />
+    <ProjectReference Include="..\..\src\FiberNet.IO\FiberNet.IO.csproj" />
+    <ProjectReference Include="..\..\src\FiberNet.Core\FiberNet.Core.csproj" />
+  </ItemGroup>
+</Project>

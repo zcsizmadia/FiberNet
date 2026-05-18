@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>$(DefaultTargetFrameworks)</TargetFrameworks>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Description>FiberNet Linux SAEA I/O provider with zero-copy zero-alloc completions.</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.IO.Pipelines" />
+    <ProjectReference Include="..\FiberNet.IO\FiberNet.IO.csproj" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,26 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src\FiberNet.Core\FiberNet.Core.csproj" />
+    <Project Path="src\FiberNet.IO\FiberNet.IO.csproj" />
+    <Project Path="src\FiberNet.IO.Windows\FiberNet.IO.Windows.csproj" />
+    <Project Path="src\FiberNet.IO.Linux\FiberNet.IO.Linux.csproj" />
+    <Project Path="src\FiberNet.Transport.Kestrel\FiberNet.Transport.Kestrel.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests\FiberNet.Core.Tests\FiberNet.Core.Tests.csproj" />
+    <Project Path="tests\FiberNet.IO.Tests\FiberNet.IO.Tests.csproj" />
+    <Project Path="tests\FiberNet.Transport.Kestrel.Tests\FiberNet.Transport.Kestrel.Tests.csproj" />
+  </Folder>
+  <Folder Name="/benchmarks/">
+    <Project Path="benchmarks\FiberNet.Benchmarks\FiberNet.Benchmarks.csproj" />
+    <Project Path="benchmarks\FiberNet.Benchmarks.Kestrel\FiberNet.Benchmarks.Kestrel.csproj" />
+  </Folder>
+  <Folder Name="/samples/">
+    <Project Path="samples\EchoServer\EchoServer.csproj" />
+    <Project Path="samples\HttpServer\HttpServer.csproj" />
+    <Project Path="samples\TcpClient\TcpClient.csproj" />
+    <Project Path="samples\ZeroCopyPipeline\ZeroCopyPipeline.csproj" />
+    <Project Path="samples\FiberChannels\FiberChannels.csproj" />
+    <Project Path="samples\KestrelIntegration\KestrelIntegration.csproj" />
+  </Folder>
+</Solution>

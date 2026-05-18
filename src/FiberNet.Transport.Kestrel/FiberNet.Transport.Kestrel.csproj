@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>$(DefaultTargetFrameworks)</TargetFrameworks>
+    <Description>FiberNet Kestrel transport — drop-in zero-alloc fiber-scheduled replacement.</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="System.IO.Pipelines" />
+    <ProjectReference Include="..\FiberNet.IO\FiberNet.IO.csproj" />
+    <ProjectReference Include="..\FiberNet.Core\FiberNet.Core.csproj" />
+  </ItemGroup>
+</Project>

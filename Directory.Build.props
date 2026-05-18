@@ -1,0 +1,64 @@
+<Project>
+  <PropertyGroup>
+    <Version>1.0.0</Version>
+
+    <!-- <DefaultTargetFrameworks>net8.0;net9.0;net10.0</DefaultTargetFrameworks> -->
+    <DefaultTargetFrameworks>net10.0</DefaultTargetFrameworks>
+    <DefaultTargetFramework>net10.0</DefaultTargetFramework>
+    
+    <LangVersion>preview</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <WarningsAsErrors />
+    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+    <Deterministic>true</Deterministic>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <Optimize Condition="'$(Configuration)' == 'Release'">true</Optimize>
+
+    <!-- AOT -->
+    <IsAotCompatible Condition="'$(TargetFramework)' != ''">true</IsAotCompatible>
+
+    <Authors>FiberNet Contributors</Authors>
+    <Product>FiberNet</Product>
+    <Copyright>Copyright © FiberNet Contributors</Copyright>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/fibernet/fibernet</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+
+    <!-- Analysis -->
+    <AnalysisLevel>latest-all</AnalysisLevel>
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
+    <EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
+  </PropertyGroup>
+
+  <!-- Per-project type overrides -->
+  <!-- Test-project analyzer relaxations: underscore naming is idiomatic in tests -->
+  <PropertyGroup Condition="$(MSBuildProjectName.EndsWith('.Tests'))">
+    <IsTestProject>true</IsTestProject>
+    <IsAotCompatible>false</IsAotCompatible>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <NoWarn>$(NoWarn);CA1707;CA1515;CA2007</NoWarn>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="$(MSBuildProjectName.EndsWith('.Benchmarks'))">
+    <IsAotCompatible>false</IsAotCompatible>
+    <Optimize>true</Optimize>
+    <!-- CA1812: BDN instantiates benchmark classes via reflection -->
+    <!-- CA1515: BDN requires benchmark classes to be public -->
+    <NoWarn>$(NoWarn);CA1812;CA1515</NoWarn>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="$(MSBuildProjectName.StartsWith('EchoServer')) Or
+                             $(MSBuildProjectName.StartsWith('HttpServer')) Or
+                             $(MSBuildProjectName.StartsWith('TcpClient')) Or
+                             $(MSBuildProjectName.StartsWith('ZeroCopyPipeline')) Or
+                             $(MSBuildProjectName.StartsWith('FiberChannels')) Or
+                             $(MSBuildProjectName.StartsWith('KestrelIntegration'))">
+    <IsSampleProject>true</IsSampleProject>
+    <IsAotCompatible>false</IsAotCompatible>
+    <!-- CA2007 (ConfigureAwait) is noisy in top-level sample programs -->
+    <NoWarn>$(NoWarn);CA2007</NoWarn>
+  </PropertyGroup>
+</Project>
